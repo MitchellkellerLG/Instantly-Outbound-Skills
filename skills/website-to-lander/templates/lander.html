@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+{{font_link_html}}
+<style>
+:root{
+  --primary:{{c_primary}};--primary-top:{{c_primary_top}};--primary-hover:{{c_primary_hover}};--on-primary:{{c_on_primary}};
+  --accent:{{c_accent}};--accent-on-dark:{{c_accent_on_dark}};
+  --bg:{{c_canvas}};--card:#ffffff;--band:{{c_band}};--text:{{c_text}};--muted:{{c_muted}};--border:{{c_border}};
+  --dark:{{c_dark}};--glow:{{c_glow}};
+  --font:{{font_stack_css}};
+  --max:1200px;--gutter:24px;--section:clamp(88px,8vw,120px);--pad:32px;
+  --r-card:12px;--r-btn:8px;--r-pill:40px;--ambient:0 18px 48px rgb(45 58 73 / .10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.5;letter-spacing:-.01em;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+img{max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* announcement banner */
+.wl-announce{background:var(--dark);color:#f4f4f6;font-size:14px}
+.wl-announce[hidden]{display:none}
+.wl-announce__inner{max-width:var(--max);margin:0 auto;padding:10px 56px 10px var(--gutter);position:relative;text-align:center}
+.wl-announce p{margin:0}
+.wl-announce a{color:var(--accent-on-dark);font-weight:600;margin-left:6px;white-space:nowrap}
+.wl-announce__dismiss{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:32px;height:32px;border:0;border-radius:8px;background:transparent;color:inherit;font-size:20px;cursor:pointer}
+.wl-announce__dismiss:hover{background:rgb(255 255 255 / .1)}
+
+/* navigation */
+.wl-nav{position:sticky;top:0;z-index:20;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 clamp(24px,3.3vw,64px);background:color-mix(in srgb,var(--bg) 91%,transparent);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgb(40 53 68 / .06)}
+.wl-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.wl-brand__logo{height:32px;width:auto;max-width:180px;object-fit:contain}
+.wl-brand__word{font-size:20px;font-weight:600;letter-spacing:-.01em}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 16px;border-radius:var(--r-btn);border:1px solid transparent;font:inherit;font-size:14px;font-weight:500;line-height:1;text-decoration:none;cursor:pointer;transition:background .15s,box-shadow .15s}
+.btn:active{transform:translateY(1px)}
+.btn > span{flex:none}
+.btn-primary{color:var(--on-primary);background:linear-gradient(180deg,var(--primary-top),var(--primary));border-color:var(--primary);box-shadow:inset 0 1px 0 rgb(255 255 255 / .18),0 1px 2px rgb(20 30 60 / .18)}
+.btn-primary:hover{background:linear-gradient(180deg,var(--primary-hover),var(--primary-hover));box-shadow:inset 0 1px 0 rgb(255 255 255 / .16),0 2px 6px rgb(20 30 60 / .22)}
+.btn-sm{min-height:36px;padding:0 12px;font-size:13px}
+.btn-lg{min-height:48px;padding-left:22px;padding-right:22px;font-size:16px}
+.btn-lg{line-height:1.2;text-align:center;padding-top:10px;padding-bottom:10px}
+
+/* hero */
+.wl-hero{padding:clamp(56px,7vw,96px) 0 var(--section)}
+.wl-hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);grid-template-areas:"head watch" "gets watch";column-gap:48px;row-gap:28px;align-items:start}
+.wl-hero__head{grid-area:head}
+.wl-watch{grid-area:watch}
+.wl-gets{grid-area:gets}
+.wl-eyebrow{margin:0 0 14px;font-size:12px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.wl-hero h1{margin:0 0 18px;font-size:clamp(36px,3.8vw,58px);font-weight:500;line-height:1.08;letter-spacing:-.03em}
+.wl-hero__promise{margin:0 0 14px;font-size:21px;line-height:1.4;font-weight:500}
+.wl-hero__lede{margin:0;font-size:17px;color:var(--muted)}
+.wl-gets{margin:0;padding:24px var(--pad);background:var(--card);border:1px solid var(--border);border-radius:var(--r-card)}
+.wl-gets h2{margin:0 0 12px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.wl-gets ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.wl-gets li{position:relative;padding-left:26px;font-size:15px}
+.wl-gets li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:8px;border-left:2px solid var(--primary);border-bottom:2px solid var(--primary);transform:rotate(-45deg)}
+.wl-watch{background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);padding:16px;box-shadow:var(--ambient),0 0 0 6px var(--glow)}
+.wl-vsl{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--dark)}
+.wl-vsl iframe,.wl-vsl video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.wl-vsl__placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#f4f4f6;text-align:center;padding:16px}
+.wl-vsl__placeholder small{opacity:.7}
+.wl-vsl__doc span{font-size:20px;font-weight:600;max-width:32ch}
+.wl-vsl__play{width:64px;height:64px;border-radius:50%;background:var(--primary);position:relative}
+.wl-vsl__play::after{content:"";position:absolute;left:26px;top:20px;border-left:18px solid var(--on-primary);border-top:12px solid transparent;border-bottom:12px solid transparent}
+.wl-under{padding:18px 4px 4px;display:grid;gap:14px;justify-items:start}
+.wl-cta-line{margin:0;font-size:17px;line-height:1.45;font-weight:500}
+.wl-under small{color:var(--muted);font-size:13px}
+
+/* proof */
+.wl-section{padding:var(--section) 0;border-top:1px solid var(--border)}
+.wl-section__head{max-width:760px;margin:0 0 40px}
+.wl-section__head h2{margin:0 0 12px;font-size:clamp(2.1rem,4.2vw,3.4rem);font-weight:450;line-height:1.04;letter-spacing:-.04em}
+.wl-section__head p{margin:0;font-size:17px;color:var(--muted)}
+.wl-proof__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.wl-card{margin:0;padding:var(--pad);background:var(--card);border:1px solid var(--border);border-radius:var(--r-card);background-image:radial-gradient(120% 80% at 0 0,var(--glow),transparent 60%)}
+.wl-proof__item blockquote{margin:0 0 16px;font-size:19px;line-height:1.4;font-weight:500;letter-spacing:-.01em}
+.wl-proof__item figcaption{font-size:13px;color:var(--muted)}
+
+/* closing band */
+.wl-final{padding:var(--section) 0}
+.wl-final__panel{background:var(--dark);color:#f4f4f6;border-radius:var(--r-card);padding:clamp(32px,5vw,56px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.wl-final__panel h2{margin:0;max-width:640px;font-size:clamp(28px,3.2vw,40px);font-weight:450;line-height:1.1;letter-spacing:-.03em}
+.wl-foot{padding:32px 0 48px;color:var(--muted);font-size:13px;border-top:1px solid var(--border)}
+
+/* exit popup */
+.wl-exit{position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgb(6 8 18 / .66);backdrop-filter:blur(4px)}
+.wl-exit[hidden]{display:none}
+.wl-exit__dialog{position:relative;width:min(540px,100%);padding:40px 34px 30px;border-radius:18px;background:var(--dark);color:#f4f4f6;border:1px solid color-mix(in srgb,var(--primary) 45%,transparent);box-shadow:0 30px 90px rgb(0 0 0 / .5);font-family:var(--font)}
+.wl-exit__close{position:absolute;top:12px;right:14px;width:38px;height:38px;border:0;border-radius:10px;background:transparent;color:#c9c9d0;font-size:26px;line-height:1;cursor:pointer}
+.wl-exit__close:hover,.wl-exit__close:focus-visible{background:rgb(255 255 255 / .08);color:#fff}
+.wl-exit__eyebrow{margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-on-dark)}
+.wl-exit__title{margin:0 0 12px;font-size:36px;line-height:1.08;font-weight:450;letter-spacing:-.02em}
+.wl-exit__body{margin:0 0 22px;font-size:16px;line-height:1.55;color:#d6d6dc}
+.wl-exit__btn{width:100%}
+
+@media (max-width:900px){
+  .wl-hero__grid{grid-template-columns:1fr;grid-template-areas:"head" "watch" "gets";row-gap:28px}
+}
+@media (max-width:760px){
+  :root{--gutter:16px;--section:56px;--pad:24px}
+  .wl-nav{height:60px;padding:0 16px}
+  .wl-hero h1{font-size:clamp(30px,8vw,40px)}
+  .wl-section__head{margin-bottom:24px}
+}
+@media (max-width:600px){
+  .wl-exit{padding:16px;align-items:flex-end}
+  .wl-exit__dialog{width:100%;padding:28px 20px 22px}
+  .wl-exit__title{font-size:28px}
+  .wl-final__panel .btn{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="wl-announce" id="wl-announce" hidden>
+  <div class="wl-announce__inner"><p>{{banner_text}} <a href="{{case_studies_url}}" data-cta="case-studies" rel="noopener">{{banner_link_text}} <span aria-hidden="true">-&gt;</span></a></p><button type="button" class="wl-announce__dismiss" aria-label="Dismiss announcement">&times;</button></div>
+</div>
+<header class="wl-nav">
+  <a class="wl-brand" href="#top" aria-label="{{brand_name}}">{{logo_html}}</a>
+  <a class="btn btn-primary btn-sm" href="{{booking_url}}" data-cta="booking-nav" rel="noopener">{{cta_button}}</a>
+</header>
+<main id="top">
+  <section class="wl-hero">
+    <div class="wrap wl-hero__grid">
+      <div class="wl-hero__head">
+        <p class="wl-eyebrow"{{merge_eyebrow_attr_html}}>{{eyebrow}}</p>
+        <h1>{{headline}}</h1>
+        <p class="wl-hero__promise">{{subhead}}</p>
+        <p class="wl-hero__lede">{{lede}}</p>
+      </div>
+      <div class="wl-watch">
+        <div class="wl-vsl" data-slot="vsl">{{vsl_html}}</div>
+        <div class="wl-under">
+          <p class="wl-cta-line">{{cta_line}}</p>
+          <a class="btn btn-primary btn-lg" href="{{booking_url}}" data-cta="booking-under-video" rel="noopener">{{cta_button}} <span aria-hidden="true">-&gt;</span></a>
+          {{under_note_html}}
+        </div>
+      </div>
+      <div class="wl-gets">
+        <h2>{{call_gets_title}}</h2>
+        <ul>
+{{call_gets_html}}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wl-section" id="proof">
+    <div class="wrap">
+      <div class="wl-section__head">
+        <h2>{{proof_title}}</h2>
+        {{proof_intro_html}}
+      </div>
+      <div class="wl-proof__grid">
+{{proof_html}}
+      </div>
+    </div>
+  </section>
+
+  <section class="wl-final">
+    <div class="wrap">
+      <div class="wl-final__panel">
+        <h2>{{final_title}}</h2>
+        <a class="btn btn-primary btn-lg" href="{{booking_url}}" data-cta="booking-final" rel="noopener">{{cta_button}} <span aria-hidden="true">-&gt;</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="wl-foot">
+  <div class="wrap">{{footer_text}}</div>
+</footer>
+
+<div class="wl-exit" id="wl-exit" hidden>
+  <div class="wl-exit__dialog" role="dialog" aria-modal="true" aria-labelledby="wl-exit-title" aria-describedby="wl-exit-body">
+    <button type="button" class="wl-exit__close" aria-label="Close">&times;</button>
+    <p class="wl-exit__eyebrow"{{merge_popup_eyebrow_attr_html}}>{{popup_eyebrow}}</p>
+    <h2 class="wl-exit__title" id="wl-exit-title">{{popup_title}}</h2>
+    <p class="wl-exit__body" id="wl-exit-body">{{popup_body}}</p>
+    <a class="btn btn-primary btn-lg wl-exit__btn" href="{{booking_url}}" data-cta="booking-popup" rel="noopener">{{popup_cta}} <span aria-hidden="true">-&gt;</span></a>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var CFG = {{config_json}};
+  function store(k, v) {
+    try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }
+    catch (e) { return v === undefined ? null : undefined; }
+  }
+
+  /* General pages: ?first_name= and ?company= fill the merge lines; a line whose tags are not all in the URL stays as written. */
+  var query = new URLSearchParams(location.search);
+  Array.prototype.forEach.call(document.querySelectorAll('[data-merge]'), function (el) {
+    var ok = true;
+    var line = el.getAttribute('data-merge').replace(/\{(first_name|company)\}/g, function (m, k) {
+      var v = (query.get(k) || '').trim().slice(0, 60);
+      if (!v) ok = false;
+      return v;
+    });
+    if (ok) el.textContent = line;
+  });
+
+  /* Announcement banner: shown until dismissed; the dismiss is kept in localStorage. */
+  var banner = document.getElementById('wl-announce');
+  if (banner && store(CFG.bannerKey) !== '1') banner.hidden = false;
+  if (banner) banner.querySelector('.wl-announce__dismiss').addEventListener('click', function () {
+    banner.hidden = true; store(CFG.bannerKey, '1');
+  });
+
+  /* Exit-intent popup.
+     Desktop: the mouse leaves through the top of the window after 8 seconds.
+     Mobile: an upward scroll of more than 80 pixels after 25 seconds, or 75 seconds on the page.
+     At most once per 7 days in the same browser; a dismiss is stored in localStorage and
+     a click on any booking link suppresses it there for good. ?preview=exit shows it at once. */
+  var DESKTOP_DWELL = 8000;
+  var MOBILE_DWELL = 25000;
+  var MOBILE_SCROLL = 80;
+  var MOBILE_TIME = 75000;
+  var TTL = 7 * 864e5;
+  var root = document.getElementById('wl-exit');
+  var dialog = root.querySelector('[role="dialog"]');
+  var start = Date.now(), shown = false, lastFocus = null, lastScroll = window.scrollY || 0;
+  var preview = /[?&]preview=exit\b/.test(location.search);
+
+  function recent(key) { var t = Number(store(key) || 0); return !!(t && Date.now() - t < TTL); }
+  function suppressed() { return store(CFG.bookedKey) === '1' || recent(CFG.seenKey) || recent(CFG.dismissKey); }
+  function isDesktop() {
+    return !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 900px)').matches);
+  }
+  function ready() { return Date.now() - start >= (isDesktop() ? DESKTOP_DWELL : MOBILE_DWELL); }
+  function onKey(e) {
+    if (e.key === 'Escape') { hide(); return; }
+    if (e.key !== 'Tab') return;
+    var items = dialog.querySelectorAll('button, a[href]');
+    var first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  function show(force) {
+    if (shown || (!force && suppressed())) return;
+    shown = true;
+    lastFocus = document.activeElement;
+    root.hidden = false;
+    document.addEventListener('keydown', onKey);
+    dialog.querySelector('.wl-exit__btn').focus();
+    if (!force) store(CFG.seenKey, String(Date.now()));
+  }
+  function hide() {
+    if (root.hidden) return;
+    root.hidden = true;
+    document.removeEventListener('keydown', onKey);
+    if (!preview) store(CFG.dismissKey, String(Date.now()));
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function onOut(e) {
+    if (!isDesktop()) return;
+    if (e.relatedTarget || e.clientY > 0) return;
+    if (!ready() || suppressed()) return;
+    document.removeEventListener('mouseout', onOut);
+    show(false);
+  }
+  function onScroll() {
+    if (isDesktop() || shown) return;
+    var y = window.scrollY || 0;
+    var goingUp = y + MOBILE_SCROLL < lastScroll;
+    if (y > lastScroll || goingUp) lastScroll = y;
+    if (!ready() || !goingUp || suppressed()) return;
+    show(false);
+  }
+  function onTimer() { if (!shown && !isDesktop() && !suppressed()) show(false); }
+
+  root.querySelector('.wl-exit__close').addEventListener('click', hide);
+  root.addEventListener('mousedown', function (e) { if (e.target === root) hide(); });
+  Array.prototype.forEach.call(document.querySelectorAll('a[data-cta^="booking"]'), function (a) {
+    a.addEventListener('click', function () { store(CFG.bookedKey, '1'); if (!root.hidden) { root.hidden = true; document.removeEventListener('keydown', onKey); } });
+  });
+  if (preview) { show(true); return; }
+  if (suppressed()) return;
+  document.addEventListener('mouseout', onOut);
+  window.addEventListener('scroll', onScroll, {passive: true});
+  setTimeout(onTimer, MOBILE_TIME);
+})();
+</script>
+</body>
+</html>

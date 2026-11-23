@@ -1,0 +1,57 @@
+{
+  "_how": "A filled general example for a synthetic sender (Northwind Creative). One reusable page for every lead in a campaign, in the sender's own brand, built around a case-study document. Proof items need a source. Never invent results.",
+  "mode": "general",
+  "brand": {
+    "name": "Northwind Creative",
+    "url": "https://agency.example",
+    "logo": "",
+    "primary_color": "#3a4fd6",
+    "font_family": "Inter",
+    "font_css_url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+  },
+  "slug": "northwind-creative",
+  "best_product": "",
+  "deliverable": "the case study on how we rebuilt a sock brand's paid social",
+  "banner_text": "We make paid social creative for apparel and outdoor brands.",
+  "banner_link_text": "See the case studies",
+  "case_studies_url": "https://agency.example/case-studies",
+  "eyebrow": "A 5-minute read",
+  "merge_eyebrow": "Prepared for {company}",
+  "headline": "How a sock brand doubled its return on ad spend in 60 days",
+  "subhead": "The angles, the hooks and the testing plan behind Fernhill Socks' new creative.",
+  "lede": "The case study walks through what we changed and in what order. On the call we map the same plan to your shop.",
+  "vsl_url": "",
+  "vsl_caption": "How we did it, in a few minutes",
+  "case_study_url": "https://agency.example/case-studies/fernhill-socks",
+  "case_study_title": "Fernhill Socks: 2x return on ad spend in 60 days",
+  "case_study_summary": "Five new creatives, two angles that won, one testing plan.",
+  "cta_line": "Grab a time and I'll walk you through how we'd run the same plan for your shop.",
+  "cta_button": "Book the walkthrough",
+  "booking_url": "https://agency.example/book/walkthrough",
+  "call_gets_title": "On the call",
+  "call_gets": [
+    "The three angles we would test first for you",
+    "The budget and timeline for the first test",
+    "What we would need from your team"
+  ],
+  "proof_title": "Results we can show",
+  "proof_intro": "",
+  "proof": [
+    {
+      "text": "Return on ad spend went from 1.6 to 3.2 in 60 days.",
+      "source": "our case study: Fernhill Socks"
+    },
+    {
+      "text": "Cost per purchase fell 41% on the winning angle.",
+      "source": "our case study: Fernhill Socks"
+    }
+  ],
+  "final_title": "Want the same plan for your shop? The walkthrough is where it starts.",
+  "popup_eyebrow": "Before you go",
+  "merge_popup_eyebrow": "Before you go, {first_name}",
+  "popup_title": "Want the plan we used, mapped to your shop?",
+  "popup_body": "We go through the case study and the first test we would run for you.",
+  "call_length": "15 minutes",
+  "popup_cta": "Book the walkthrough",
+  "from_name": "Northwind Creative"
+}

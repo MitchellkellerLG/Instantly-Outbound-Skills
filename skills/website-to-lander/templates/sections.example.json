@@ -1,0 +1,46 @@
+{
+  "_how": "A filled example for a synthetic brand (Fernhill Socks, evals/fixtures/fernhill-site.html). extract writes a starter like this into your run folder with TODO marks; fill every one. Proof items need a source. Never invent results.",
+  "brand": {
+    "name": "Fernhill Socks",
+    "url": "https://fernhill.example",
+    "logo": "",
+    "primary_color": "#2f6b4f",
+    "font_family": "Work Sans",
+    "font_css_url": "https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+  },
+  "slug": "fernhill-socks",
+  "best_product": "the Trail Merino Crew",
+  "deliverable": "5 ad creatives",
+  "banner_text": "We make paid social creative for apparel and outdoor brands.",
+  "banner_link_text": "See the case studies",
+  "case_studies_url": "https://agency.example/case-studies",
+  "eyebrow": "Prepared for Fernhill Socks",
+  "headline": "Your 5 ad creatives for the Trail Merino Crew",
+  "subhead": "Five scroll-stopping ads built around what your customers already say about the Crew.",
+  "lede": "We are prepping your creatives now. The video below shows how we pick the angles, shoot the hooks and test them, so you know what you are getting before the call.",
+  "vsl_url": "",
+  "vsl_caption": "How we build and test the creatives, in 3 minutes",
+  "cta_line": "Grab a time and I'll walk you through your 5 creatives and how I'd run them on your shop.",
+  "cta_button": "Book the walkthrough",
+  "booking_url": "https://agency.example/book/walkthrough",
+  "call_gets_title": "On the call",
+  "call_gets": [
+    "Your 5 creatives, one by one, with the angle behind each",
+    "Which two to launch first and the budget to test them",
+    "How we would run them on your shop for the next 30 days"
+  ],
+  "proof_title": "What Fernhill Socks already has going for it",
+  "proof_intro": "Every creative leans on proof your customers already gave you.",
+  "proof": [
+    {"text": "Rated 4.8 out of 5 by 12,400 customers.", "source": "https://fernhill.example"},
+    {"text": "Knitted in small batches since 2014.", "source": "https://fernhill.example"},
+    {"text": "\"Three winters in and not one hole. I bought six more pairs.\"", "source": "https://fernhill.example"}
+  ],
+  "final_title": "Your creatives are on the way. The walkthrough is where they start earning.",
+  "popup_eyebrow": "Before you go, Fernhill Socks",
+  "popup_title": "Want the walkthrough of your 5 creatives?",
+  "popup_body": "We go through each creative, the angle behind it and how we would run the first test on your shop.",
+  "call_length": "15 minutes",
+  "popup_cta": "Book the walkthrough",
+  "from_name": "Example Creative Co."
+}

@@ -1,0 +1,11 @@
+{
+  "_how": "One list per campaign for website-to-lander clone. run_dir is a filled run folder (sections.json), relative to this file. Add replied_at (ISO time with a zone) when the prospect replies; entries without it are skipped. first_name and two times are optional. Synthetic brands only in this repo.",
+  "campaign": "5 free creatives DTC",
+  "sender_name": "Ana",
+  "domain": "pages.agency.example",
+  "prospects": [
+    {"run_dir": "fernhill-socks", "replied_at": "2026-11-23T14:05:00Z", "first_name": "Maya", "times": ["Tuesday at 1pm ET", "Wednesday at 11am ET"]},
+    {"run_dir": "saltmarrow-swim", "replied_at": "2026-11-23T16:40:00Z", "first_name": "Leo", "times": ["Tuesday at 3pm ET", "Wednesday at 2pm ET"]},
+    {"run_dir": "quillfen-tea-house"}
+  ]
+}

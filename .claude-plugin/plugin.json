@@ -1,0 +1,14 @@
+{
+  "name": "instantly-outbound-skills",
+  "version": "0.1.0",
+  "description": "Free skills for outbound with Instantly: an AI Sales Agent setup prompt for Instantly Copilot, and a website-to-lander skill that builds booking pages (one per positive reply, or one per lead magnet) with hosting in Instantly or on Cloudflare Pages. Files and text only; never sends, launches or deploys anything.",
+  "license": "MIT",
+  "keywords": [
+    "instantly",
+    "cold-email",
+    "outbound",
+    "ai-sales-agent",
+    "landing-page",
+    "copilot"
+  ]
+}
