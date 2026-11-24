@@ -4,13 +4,15 @@ Free Claude skills that turn a few answers into prompts you paste into Instantly
 
 ![Instantly Outbound Skills: two skills, each from a few questions to a Copilot prompt](docs/images/overview.png)
 
+The AI Sales Agent card in the picture still says five questions. The table below is the current flow.
+
 The skills only write text and files on your machine. No API keys, no tracking, and nothing is sent, launched or deployed for you.
 
 ## Skills
 
 | Skill | What it does | Use it when | How it works |
 |---|---|---|---|
-| [ai-sales-agent-setup-prompt](skills/ai-sales-agent-setup-prompt/) | Asks you 5 questions and writes one Copilot prompt that builds your Knowledge Base, connects Notion, Granola or Google Drive, and sets up an AI Sales Agent with Pulse on. Its first 10 leads wait for your approval. | You want an AI Sales Agent that writes from your own facts, not guesses. | [See the flow](#ai-sales-agent-setup-prompt) |
+| [ai-sales-agent-setup-prompt](skills/ai-sales-agent-setup-prompt/) | Asks one question at a time until the brief is concrete (who you sell to, the offer, the proof you can stand behind, and what the agent must never say), then writes one Copilot prompt. The prompt builds your Knowledge Base, connects Notion, Granola or Google Drive, and sets up an AI Sales Agent with Pulse on. Its first 10 leads wait for your approval. | You want an AI Sales Agent that writes from your own facts, not guesses. | [See the flow](#ai-sales-agent-setup-prompt) |
 | [website-to-lander](skills/website-to-lander/) | Turns a website into a booking page. **Personal:** one page per prospect who replied, in their brand, plus a workflow that builds one for every positive reply. **General:** one page for every lead in a campaign, in your brand, around a video or case study. | A lead magnet campaign gets replies and you want the reply link to book a call. | [See the flow](#website-to-lander) |
 
 ## Install
@@ -38,12 +40,15 @@ Add the same plugin from this repo's marketplace, or upload the skill zip from t
 
 ### ai-sales-agent-setup-prompt
 
-![AI Sales Agent setup prompt: from 5 questions to 10 drafted leads waiting for your OK](docs/images/ai-sales-agent-setup-prompt.png)
+![AI Sales Agent setup prompt: a confirmed brief, then 10 drafted leads waiting for your OK](docs/images/ai-sales-agent-setup-prompt.png)
+
+The diagram still shows the older five-question card. Follow the steps below.
 
 1. Ask Claude: "Write my AI Sales Agent setup prompt."
-2. Answer the 5 questions: your website, what you sell, who you sell to, your booking link, and where your company knowledge lives.
-3. Paste the prompt into Instantly Copilot. Upload your files and sign in to Notion, Granola or Google Drive yourself when Copilot shows you where.
-4. Check what Copilot says it learned, say OK, then approve or skip each of the first 10 leads.
+2. Answer one question at a time: your website, who you sell to, what you sell, the proof you can stand behind, and when a lead should go to a person. If an answer is too broad, it asks again. If it can open your site, it reads the public pages and checks each finding with you.
+3. Read the brief it repeats back. Say yes, or name any gap you accept. It writes the prompt only after that.
+4. Paste the prompt into Instantly Copilot. Upload your files and sign in to Notion, Granola or Google Drive yourself when Copilot shows you where.
+5. Check what Copilot says it learned, say OK, then approve or skip each of the first 10 leads.
 
 Everything stays in draft and autopilot stays off until you turn it on. No Claude? Fill in [`template.md`](skills/ai-sales-agent-setup-prompt/template.md) by hand, or run `python3 make_prompt.py`.
 
