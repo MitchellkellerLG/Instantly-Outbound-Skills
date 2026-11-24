@@ -1,48 +1,66 @@
 # Instantly Outbound Skills
 
-Free, open skills for running outbound with [Instantly](https://instantly.ai). Each skill is a folder of plain instructions that Claude follows, plus small optional Python helpers (standard library only). They only write text and files on your machine: no API keys, no tracking, and nothing is sent, launched or deployed on your behalf.
+Free Claude skills that turn a few answers into prompts you paste into Instantly Copilot, so Copilot sets up your AI Sales Agent and builds pages that book calls.
+
+![Instantly Outbound Skills: two skills, each from a few questions to a Copilot prompt](docs/images/overview.png)
+
+The skills only write text and files on your machine. No API keys, no tracking, and nothing is sent, launched or deployed for you.
 
 ## Skills
 
-| Skill | What it does |
-|---|---|
-| [ai-sales-agent-setup-prompt](skills/ai-sales-agent-setup-prompt/) | Asks you 5 questions and writes one prompt you paste into Instantly Copilot. The prompt sets up an AI Sales Agent (powered by PULSE-1), builds its Knowledge Base from your website, files and case studies, and walks you through connecting Notion, Granola or Google Drive so it stays current. Everything stays in draft until you approve it. |
-| [website-to-lander](skills/website-to-lander/) | Builds a booking-optimised landing page from a website, in two modes. **Personal:** one page per prospect who replied, in their brand, plus a Copilot prompt for an Instantly workflow that builds one for every positive reply. **General:** one page for every lead in a campaign, in your brand, around a resource or lead magnet of your choice (a video, or a case study or other document you link). Writes a ready-to-paste Instantly Copilot prompt and a self-contained `index.html`. |
+| Skill | What it does | Use it when | How it works |
+|---|---|---|---|
+| [ai-sales-agent-setup-prompt](skills/ai-sales-agent-setup-prompt/) | Asks you 5 questions and writes one Copilot prompt that builds your Knowledge Base, connects Notion, Granola or Google Drive, and sets up an AI Sales Agent with Pulse on. Its first 10 leads wait for your approval. | You want an AI Sales Agent that writes from your own facts, not guesses. | [See the flow](#ai-sales-agent-setup-prompt) |
+| [website-to-lander](skills/website-to-lander/) | Turns a website into a booking page. **Personal:** one page per prospect who replied, in their brand, plus a workflow that builds one for every positive reply. **General:** one page for every lead in a campaign, in your brand, around a video or case study. | A lead magnet campaign gets replies and you want the reply link to book a call. | [See the flow](#website-to-lander) |
 
-## Put a page live
+## Install
 
-The website-to-lander pages can be hosted in Instantly (built by Copilot from the prompt) or off Instantly on Cloudflare Pages (free; drag-and-drop upload, your own subdomain, kept out of search results). See [the hosting guide](skills/website-to-lander/references/hosting.md).
+**Claude (claude.ai)**
 
-## Use a skill in Claude (claude.ai)
+1. Download this repo (Code, then Download ZIP) and unzip it.
+2. Zip just the skill's folder, for example `cd skills && zip -r website-to-lander.zip website-to-lander`.
+3. In Claude, open Settings, then Capabilities, and upload the zip under Skills. Skills need to be turned on for your account.
 
-1. Download the skill folder as a zip. Either download this repo (Code, then Download ZIP), unzip it, and zip just the skill's folder (for example `skills/ai-sales-agent-setup-prompt`), or run `cd skills && zip -r ai-sales-agent-setup-prompt.zip ai-sales-agent-setup-prompt`.
-2. In Claude, open Settings, then Capabilities, and upload the zip under Skills. Skills need to be turned on for your account.
-3. Start a new chat and ask for it, for example "Write my AI Sales Agent setup prompt" or "Build the lander for example.com, general mode".
-4. Answer the questions, then paste the prompt Claude gives you into Instantly Copilot.
-
-## Use the skills in Claude Code
-
-Add this repo as a plugin marketplace, then install the plugin:
+**Claude Code**
 
 ```
-/plugin marketplace add <owner>/<repo>
+/plugin marketplace add MitchellkellerLG/Instantly-Outbound-Skills
 /plugin install instantly-outbound-skills@instantly-outbound-skills
 ```
 
-Or copy a skill folder into `~/.claude/skills/` yourself.
+Or copy a skill folder into `~/.claude/skills/`.
 
-## Use a skill without Claude
+**Cowork**
 
-Each skill's `SKILL.md` (and `README.md` where there is one) explains how to use it by hand. For example, the AI Sales Agent skill has a `template.md` you can fill in yourself, and an optional `make_prompt.py` (Python 3, standard library only) that asks the questions and writes the prompt for you.
+Add the same plugin from this repo's marketplace, or upload the skill zip from the Claude steps above. Then ask for the skill in a new task.
 
-## Run the tests
+## Quick start
 
-```bash
-python3 -m pip install pytest
-python3 -m pytest skills/website-to-lander/scripts -q
-```
+### ai-sales-agent-setup-prompt
 
-The tests run offline against a made-up brand.
+![AI Sales Agent setup prompt: from 5 questions to 10 drafted leads waiting for your OK](docs/images/ai-sales-agent-setup-prompt.png)
+
+1. Ask Claude: "Write my AI Sales Agent setup prompt."
+2. Answer the 5 questions: your website, what you sell, who you sell to, your booking link, and where your company knowledge lives.
+3. Paste the prompt into Instantly Copilot. Upload your files and sign in to Notion, Granola or Google Drive yourself when Copilot shows you where.
+4. Check what Copilot says it learned, say OK, then approve or skip each of the first 10 leads.
+
+Everything stays in draft and autopilot stays off until you turn it on. No Claude? Fill in [`template.md`](skills/ai-sales-agent-setup-prompt/template.md) by hand, or run `python3 make_prompt.py`.
+
+### website-to-lander
+
+![Website to lander: personal mode, general mode and the per-reply workflow](docs/images/website-to-lander.png)
+
+1. Ask Claude: "Build the lander for example.com, personal mode" (or "general mode").
+2. Give it the deliverable or resource, your booking link and your case studies link.
+3. Paste `prompt.md` into Instantly Copilot and it builds the page. You also get `index.html`, the same page as one file.
+4. **Personal:** reply in the same thread with the prospect's page link. To do this for every positive reply, paste `workflow-prompt.md` into Copilot; it sets up a workflow that stays off until you turn it on. **General:** use the link in `linking.md` in your campaign.
+
+Every proof point on the page names its source, and the page is set to `noindex`.
+
+## Host a page off Instantly
+
+You can host the page in Instantly, or off Instantly on Cloudflare Pages for free: drag and drop the folder, add your own subdomain, and keep it out of search results. See [the hosting guide](skills/website-to-lander/references/hosting.md).
 
 ## License
 
